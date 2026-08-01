@@ -14,6 +14,14 @@ interface ResumeEntry {
   link?: string
 }
 
+interface TestimonialEntry {
+  id: string
+  quote: string
+  name: string
+  role: string
+  avatar?: string
+}
+
 interface ResumeData {
   ownerName: string
   ownerTitle: string
@@ -24,6 +32,8 @@ interface ResumeData {
   ownerGitHub: string
   ownerInstagram: string
   ownerAvatar: string
+  heroPhoto: string
+  heroTaglines: string[]
   professionalSummary: string
   honorsAwards: ResumeEntry[]
   education: ResumeEntry[]
@@ -36,60 +46,76 @@ interface ResumeData {
   hackathons: ResumeEntry[]
   certifications: ResumeEntry[]
   leadership: ResumeEntry[]
+  testimonials: TestimonialEntry[]
 }
 
 // ─── Default Data ─────────────────────────────────────────────────────────────
 
 const DEFAULT_DATA: ResumeData = {
-  ownerName: 'Your Name',
-  ownerTitle: 'Software Engineer & Researcher',
-  ownerEmail: 'your.email@example.com',
-  ownerPhone: '+1 (555) 000-0000',
-  ownerLocation: 'City, Country',
-  ownerLinkedIn: 'linkedin.com/in/yourprofile',
-  ownerGitHub: 'github.com/yourusername',
-  ownerInstagram: 'instagram.com/yourhandle',
+  ownerName: 'Payal Kadam',
+  ownerTitle: 'Aspiring Graduate Researcher — AI & Data Science',
+  ownerEmail: 'payalkadam917@gmail.com',
+  ownerPhone: '+91 91725 67849',
+  ownerLocation: 'Pune, Maharashtra, India',
+  ownerLinkedIn: 'https://www.linkedin.com/in/payalkadam917/',
+  ownerGitHub: 'https://github.com/Payal-CSE',
+  ownerInstagram: '',
   ownerAvatar: '',
+  heroPhoto: '',
+  heroTaglines: ['a Winner.', 'an Innovator.', 'an Engineer.', 'a Researcher.', 'a Problem-Solver.'],
   professionalSummary:
-    'Passionate and driven engineer with expertise in building scalable systems and conducting impactful research. Committed to bridging the gap between theoretical knowledge and practical applications. Seeking opportunities to contribute to innovative teams and meaningful projects.',
+    'Final-year B.E. student in Artificial Intelligence & Data Science (CGPA 8.9/10) with hands-on research experience in explainable machine learning, including a first-authored paper on SHAP-based diabetes prediction currently under review and a patent-pending VR-based electronics learning platform. Combines academic research with applied experience across cybersecurity, web development, and multiple award-winning AI/ML projects spanning healthcare, public welfare, and safety automation. Demonstrated technical leadership organizing AI initiatives for 150+ students and mentoring 100+ project teams. Seeking to pursue graduate study in Computer Science with a research focus on Explainable AI, Machine Learning, and AI for Social Good.',
   honorsAwards: [
-    { id: 'ha1', title: 'Dean\'s List — 4 Consecutive Semesters', subtitle: 'University Name', period: '2021–2024', description: 'Recognized for academic excellence with a GPA above 3.8.' },
-    { id: 'ha2', title: 'Best Paper Award', subtitle: 'International Conference on AI', period: '2023', description: 'Awarded for research on adaptive neural architectures.' },
+    { id: 'ha1', title: 'Top 5 of 600+ Teams', subtitle: 'National-Level Competition, Sinhgad Institute of Technology (Team "Single Core")', period: '' },
+    { id: 'ha2', title: '2nd Place — Technical Competition Mindstorm', subtitle: 'IEEE Computational Intelligence Society', period: '' },
+    { id: 'ha3', title: 'Best Intern', subtitle: 'The Tech Protein — Cybersecurity Internship', period: '' },
+    { id: 'ha4', title: 'Top 15 of 10,000+ Teams', subtitle: 'INNOVIO, MIT World Peace University — Government Scheme Personalizer', period: '' },
+    { id: 'ha5', title: '2nd Prize — Best Website Development', subtitle: 'St. Vincent\u2019s High School & Junior College', period: '2023' },
+    { id: 'ha6', title: '1st Prize — Republic Day Parade', subtitle: 'Mount Carmel Convent High School', period: '2021' },
   ],
   education: [
-    { id: 'ed1', title: 'B.Sc. Computer Science', subtitle: 'University Name', period: '2020 – 2024', description: 'Major in AI & Machine Learning. Minor in Mathematics.', bullets: ['GPA: 3.92 / 4.00', 'Thesis: Efficient Attention Mechanisms for Long Sequences'] },
+    { id: 'ed1', title: 'B.E. in Artificial Intelligence & Data Science', subtitle: 'Marathwada Mitra Mandal\u2019s College of Engineering (MMCOE), Savitribai Phule Pune University', period: 'Expected Graduation: 2027', description: 'CGPA: 8.9 / 10.0' },
+    { id: 'ed2', title: 'Higher Secondary Education (Science)', subtitle: 'St. Vincent\u2019s High School & Junior College, Pune', period: '2023', description: 'Class XII: 80.83%', bullets: ['2nd Prize — Best Website Development', 'Student Assistant, Physics Department'] },
+    { id: 'ed3', title: 'Primary & Secondary Education (Kindergarten \u2013 Grade 10)', subtitle: 'Mount Carmel Convent High School, Pune', period: '2021', description: 'Class X: 89.40%', bullets: ['Captain, Road Safety Patrol', 'Eco Club Member', '1st Prize — Republic Day Parade'] },
   ],
-  technicalSkills: ['Python', 'TypeScript', 'React', 'Node.js', 'PyTorch', 'TensorFlow', 'PostgreSQL', 'Docker', 'Kubernetes', 'AWS', 'Git', 'Linux', 'C++', 'GraphQL', 'Redis'],
-  softSkills: ['Leadership', 'Problem Solving', 'Communication', 'Team Collaboration', 'Critical Thinking', 'Adaptability', 'Time Management', 'Mentorship'],
+  technicalSkills: ['Python', 'C', 'C++', 'SQL', 'JavaScript', 'HTML', 'CSS', 'Flask', 'React', 'Tailwind CSS', 'Node.js', 'Firebase', 'MongoDB', 'Git', 'GitHub', 'Jupyter Notebook', 'Vercel'],
+  softSkills: ['Leadership', 'Mentorship', 'Public Speaking', 'Team Collaboration', 'Problem Solving', 'Ethics-Driven Innovation', 'Event Organization', 'Community Engagement'],
   professionalExperience: [
-    { id: 'pe1', title: 'Software Engineering Intern', subtitle: 'Tech Company Inc.', period: 'May 2023 – Aug 2023', description: 'Contributed to the core platform team.', bullets: ['Reduced API response time by 40% through caching layer implementation', 'Built real-time data pipeline processing 50k events/second', 'Collaborated with cross-functional teams across 3 time zones'] },
+    { id: 'pe1', title: 'Cybersecurity Intern', subtitle: 'The Tech Protein', period: 'Recognition: Best Intern', description: '', bullets: ['Conducted cybersecurity reconnaissance and information-gathering using WHOIS, Dirb, Google Dorks, Wireshark, Shodan, SSL Header Check, and Qualys SSL Labs.', 'Performed domain, network, service, and security-configuration analysis as part of practical security assessment workflows.'] },
+    { id: 'pe2', title: 'Junior Web Developer Intern', subtitle: 'Fusemarket', period: '', description: '', bullets: ['Contributed to front-end development tasks, gaining hands-on experience in debugging and collaborative development workflows.'] },
   ],
   projects: [
-    { id: 'pr1', title: 'LinguaFlow — NLP Translation Engine', subtitle: 'Personal Project', period: '2023', description: 'Open-source multilingual translation engine supporting 28 languages.', tags: ['Python', 'Transformers', 'FastAPI', 'React'], link: 'github.com/yourusername/linguaflow' },
-    { id: 'pr2', title: 'QuantumSort Visualizer', subtitle: 'Academic Project', period: '2022', description: 'Interactive visualization platform for 15+ sorting and graph algorithms.', tags: ['TypeScript', 'D3.js', 'React'], link: 'github.com/yourusername/quantumsort' },
+    { id: 'pr1', title: 'AI-Based Fire Detection & Victim Rescue System', subtitle: '2nd Place — [Competition Name]', period: '', description: 'Designed an AI/IoT-based emergency-response concept to detect fire and smoke and distinguish them from gas leaks. Developed approaches for identifying and assisting victims in smoke-filled environments using sensor-based detection.', tags: ['AI', 'IoT', 'Sensors'] },
+    { id: 'pr2', title: 'Government Scheme Personalizer', subtitle: 'Top 15 of 10,000+ teams — INNOVIO, MIT World Peace University', period: '', description: 'Built a personalization engine to help users identify government schemes relevant to their individual circumstances, focused on accessibility and public welfare.', tags: ['AI', 'Personalization', 'Public Welfare'] },
+    { id: 'pr3', title: 'Laser-Based Intrusion Detection System', subtitle: '', period: '', description: 'Engineered a laser-beam detection boundary integrated with electronic components to automatically flag unauthorized entry into a monitored area.', tags: ['Electronics', 'Security Automation'] },
+    { id: 'pr4', title: 'Stock Market Prediction System', subtitle: '', period: '', description: 'Applied machine learning to financial time-series data, covering preprocessing, feature preparation, and predictive modeling.', tags: ['Machine Learning', 'Time-Series'] },
   ],
   research: [
-    { id: 're1', title: 'Adaptive Attention in Transformers', subtitle: 'Advisor: Prof. Jane Smith', period: '2023 – Present', description: 'Investigating dynamic attention head pruning to improve inference efficiency by up to 60% without significant accuracy loss.', bullets: ['Submitted to NeurIPS 2024', 'Implemented custom CUDA kernels for sparse attention'] },
+    { id: 're1', title: 'Explainable Machine Learning Framework for Early-Stage Diabetes Prediction', subtitle: 'Independent Research', period: 'Status: Under Review', description: 'Paper: "An Explainable Machine Learning Framework for Early-Stage Diabetes Prediction Using Random Forest and SHAP-Based Clinical Feature Analysis"', bullets: ['Built an end-to-end ML framework for early-stage diabetes prediction using clinical and symptom-based features, including preprocessing and feature engineering.', 'Implemented and benchmarked Logistic Regression, Decision Tree, and Random Forest classifiers; deployed Random Forest as the final prediction model.', 'Applied SHAP (SHapley Additive exPlanations) to quantify feature-level contributions, improving model interpretability for clinical use.', 'Built a Flask web application for interactive, real-time prediction; research grounded in Explainable AI, Healthcare AI, and Responsible AI.'] },
+    { id: 're2', title: 'VR-Based AI-Assisted Electronics Learning Platform', subtitle: 'Patent Application in Progress', period: 'Filing expected within one week', description: '', bullets: ['Designed a VR platform enabling students to virtually assemble and experiment with electronic circuits without physical components.', 'Integrated AI-assisted explanations to reinforce conceptual understanding, combining AI, VR, and educational technology.'] },
   ],
-  publications: [
-    { id: 'pu1', title: 'Efficient Long-Range Dependencies via Sparse Attention Patterns', subtitle: 'NeurIPS Workshop 2023', period: '2023', description: 'Authors: Your Name, Collaborator A, Prof. Jane Smith', link: 'arxiv.org/abs/2023.00000' },
-  ],
-  hackathons: [
-    { id: 'hk1', title: '1st Place — HackMIT 2023', subtitle: 'HackMIT', period: 'Oct 2023', description: 'Built an AI-powered accessibility tool for visually impaired developers in 24 hours. Team of 4.', tags: ['OpenAI API', 'React Native', 'Node.js'] },
-    { id: 'hk2', title: 'Top 10 Finalist — Google Solution Challenge', subtitle: 'Google', period: 'Mar 2023', description: 'Developed a sustainable agriculture monitoring platform using satellite imagery and ML.', tags: ['TensorFlow', 'GCP', 'Flutter'] },
-  ],
+  publications: [],
+  hackathons: [],
   certifications: [
-    { id: 'ce1', title: 'AWS Certified Solutions Architect – Associate', subtitle: 'Amazon Web Services', period: 'Jul 2023', imageUrl: '' },
-    { id: 'ce2', title: 'Deep Learning Specialization', subtitle: 'Coursera / deeplearning.ai', period: 'Jan 2023', imageUrl: '' },
-    { id: 'ce3', title: 'Google Cloud Professional Data Engineer', subtitle: 'Google Cloud', period: 'Nov 2022', imageUrl: '' },
+    { id: 'ce1', title: 'AI/ML for Geo Data Analysis', subtitle: 'Indian Space Research Organisation (ISRO)', period: '', imageUrl: '' },
+    { id: 'ce2', title: 'Mastering Data Science and Algorithms using C & C++', subtitle: 'Udemy', period: '', imageUrl: '' },
+    { id: 'ce3', title: 'Basics of Python', subtitle: 'edX', period: '', imageUrl: '' },
+    { id: 'ce4', title: 'NSS Certificate', subtitle: 'National Service Scheme — ~2 years of community service', period: '', imageUrl: '' },
   ],
   leadership: [
-    { id: 'le1', title: 'President — Computer Science Society', subtitle: 'University Name', period: '2022 – 2024', description: 'Led a community of 400+ members. Organized 20+ workshops, hackathons, and industry panels.', bullets: ['Doubled membership in one year', 'Secured $15,000 in sponsorships'] },
-    { id: 'le2', title: 'Volunteer — Code for Good', subtitle: 'NGO Partner', period: '2021 – Present', description: 'Building free digital tools for non-profit organizations in underserved communities.' },
+    { id: 'le1', title: 'Technical Head', subtitle: 'College AI / Technical Club', period: '', description: 'Led AI-focused initiatives engaging 150+ members; mentored 50+ junior student projects; organized 3+ public events on AI for social good.' },
+    { id: 'le2', title: 'Organizer', subtitle: 'Dexterity — National-Level Technical Event', period: '', description: 'Designed and led an AI + Data Structures & Algorithms-based Escape Room engaging 300+ participants in applied, experiential learning.' },
+    { id: 'le3', title: 'Design Thinking & Innovation Mentor', subtitle: '', period: '', description: 'Mentored 100+ student teams building AI-based solutions for social challenges, guiding problem formulation and ethics-driven, responsible innovation.' },
+    { id: 'le4', title: 'National Service Scheme (NSS)', subtitle: '~2 years of community service', period: '', description: 'Participated in women\u2019s safety awareness drives, blood donation drives, village development camps, and digital-literacy initiatives in rural communities.' },
+    { id: 'le5', title: 'Captain, Road Safety Patrol & Eco Club Member', subtitle: 'Mount Carmel Convent High School', period: '', description: 'Promoted road-safety awareness and civic responsibility as Patrol Captain; supported tree-plantation and cleanliness drives through the Eco Club.' },
+  ],
+  testimonials: [
+    { id: 'te1', quote: 'Click edit and replace this with a quote from a professor, mentor, or manager who can speak to your work.', name: 'Add Name', role: 'Add Title / Relationship', avatar: '' },
+    { id: 'te2', quote: 'Click edit and replace this with a second testimonial — from an internship supervisor, club advisor, or research collaborator.', name: 'Add Name', role: 'Add Title / Relationship', avatar: '' },
   ],
 }
 
-const OWNER_PASSWORD = 'Chikudi@Cutie<3'
+const OWNER_PASSWORD = import.meta.env.VITE_OWNER_PASSWORD || 'Chikudi@Cutie<3'
 const STORAGE_KEY = 'resume_data_v1'
 
 const uid = () => Math.random().toString(36).slice(2, 9)
@@ -122,7 +148,7 @@ function EditableText({
     if (ref.current && !isFocused.current && ref.current.textContent !== value) {
       ref.current.textContent = value || ''
     }
-  }, [value])
+  }, [value, editable])
 
   if (!editable) {
     const Comp = Tag as ElementType
@@ -180,31 +206,37 @@ function ImageUpload({
     reader.readAsDataURL(file)
   }
 
+  const hasOwnPosition = /\b(absolute|fixed|sticky)\b/.test(className)
+
+  const visual = src ? (
+    <img
+      src={src}
+      alt="uploaded"
+      className={`w-full h-full object-cover ${rounded ? 'rounded-full' : 'rounded-lg'}`}
+    />
+  ) : (
+    <div
+      className={`w-full h-full flex items-center justify-center text-muted-foreground text-sm image-upload-placeholder ${rounded ? 'rounded-full' : 'rounded-lg'}`}
+      style={{ minHeight: rounded ? undefined : 80 }}
+    >
+      {editable ? '+ Image' : ''}
+    </div>
+  )
+
   return (
-    <div className={`relative group ${className}`}>
-      {src ? (
-        <img
-          src={src}
-          alt="uploaded"
-          className={`w-full h-full object-cover ${rounded ? 'rounded-full' : 'rounded-lg'}`}
-        />
+    <div className={`group ${hasOwnPosition ? '' : 'relative'} ${className}`}>
+      {editable ? (
+        <label htmlFor={inputId} className="block w-full h-full cursor-pointer" title="Click to upload an image">
+          {visual}
+        </label>
       ) : (
-        <div
-          className={`w-full h-full flex items-center justify-center text-muted-foreground text-sm ${rounded ? 'rounded-full' : 'rounded-lg'}`}
-          style={{ background: 'var(--muted)', minHeight: rounded ? undefined : 80 }}
-        >
-          {editable ? '+ Image' : ''}
-        </div>
+        visual
       )}
       {editable && (
         <>
-          <label
-            htmlFor={inputId}
-            className="upload-btn absolute bottom-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity"
-            onClick={() => inputRef.current?.click()}
-          >
+          <div className="upload-btn absolute bottom-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
             📁 Upload
-          </label>
+          </div>
           <input ref={inputRef} id={inputId} type="file" accept="image/*" onChange={handleFile} />
         </>
       )}
@@ -401,9 +433,200 @@ function EntryCard({
   )
 }
 
+// ─── Typewriter effect ─────────────────────────────────────────────────────────
+
+function TypewriterText({ phrases, className, style }: { phrases: string[]; className?: string; style?: React.CSSProperties }) {
+  const [text, setText] = useState('')
+  const [phraseIdx, setPhraseIdx] = useState(0)
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    const safe = phrases.length > 0 ? phrases : ['Something Great.']
+    const current = safe[phraseIdx % safe.length]
+    let delay = deleting ? 40 : 70
+    if (!deleting && text === current) delay = 1400 // pause at full phrase
+    if (deleting && text === '') delay = 300 // pause before next phrase
+
+    const t = setTimeout(() => {
+      if (!deleting) {
+        if (text === current) {
+          setDeleting(true)
+        } else {
+          setText(current.slice(0, text.length + 1))
+        }
+      } else {
+        if (text === '') {
+          setDeleting(false)
+          setPhraseIdx((i) => (i + 1) % safe.length)
+        } else {
+          setText(text.slice(0, -1))
+        }
+      }
+    }, delay)
+    return () => clearTimeout(t)
+  }, [text, deleting, phraseIdx, phrases])
+
+  return (
+    <span className={className} style={style}>
+      {text}
+      <span className="typewriter-cursor">|</span>
+    </span>
+  )
+}
+
+// ─── Sidebar (profile + nav) ──────────────────────────────────────────────────
+
+function SidebarContent({
+  data, update, editMode, dark, setDark, onToggleEdit, activeSection, onNavigate,
+}: {
+  data: ResumeData
+  update: <K extends keyof ResumeData>(key: K, val: ResumeData[K]) => void
+  editMode: boolean
+  dark: boolean
+  setDark: (v: boolean) => void
+  onToggleEdit: () => void
+  activeSection: string
+  onNavigate: (id: string) => void
+}) {
+  const socials = [
+    { key: 'ownerLinkedIn' as const, label: 'LinkedIn', color: '#0A66C2', icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg> },
+    { key: 'ownerGitHub' as const, label: 'GitHub', color: '#e5e7eb', icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" /></svg> },
+    { key: 'ownerInstagram' as const, label: 'Instagram', color: '#e1306c', icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" /></svg> },
+  ]
+
+  const contactRows = [
+    { icon: '✉️', field: 'ownerEmail' as const, href: (v: string) => `mailto:${v}` },
+    { icon: '📍', field: 'ownerLocation' as const, href: null },
+    { icon: '📱', field: 'ownerPhone' as const, href: (v: string) => `tel:${v}` },
+  ]
+
+  return (
+    <div className="flex flex-col h-full px-6 py-8 sidebar-scroll overflow-y-auto">
+      <div className="flex flex-col items-center text-center">
+        <div className="w-28 h-28 mb-4">
+          <ImageUpload
+            src={data.ownerAvatar}
+            onUpload={(url) => update('ownerAvatar', url)}
+            editable={editMode}
+            className="w-28 h-28 sidebar-avatar"
+            rounded
+          />
+        </div>
+        <EditableText
+          value={data.ownerName}
+          onChange={(v) => update('ownerName', v)}
+          editable={editMode}
+          tag="h1"
+          className="text-lg font-bold tracking-tight"
+          style={{ fontFamily: "'Playfair Display', serif", color: '#fff' }}
+        />
+        <EditableText
+          value={data.ownerTitle}
+          onChange={(v) => update('ownerTitle', v)}
+          editable={editMode}
+          tag="p"
+          className="text-xs mt-1 sidebar-accent-text font-medium tracking-wide"
+        />
+      </div>
+
+      <div className="w-full h-px my-6" style={{ background: 'rgba(255,255,255,0.1)' }} />
+
+      <div className="flex flex-col gap-2.5 text-xs">
+        {contactRows.map(({ icon, field, href }) => (
+          <div key={field} className="flex items-center gap-2.5 sidebar-muted-text">
+            <span className="shrink-0">{icon}</span>
+            {editMode ? (
+              <EditableText
+                value={data[field] as string}
+                onChange={(v) => update(field, v)}
+                editable
+                tag="span"
+                className="flex-1 min-w-0 break-words"
+                placeholder={field.replace('owner', '').toLowerCase()}
+              />
+            ) : href ? (
+              <a href={href(data[field] as string)} className="hover:underline break-all">{data[field] as string}</a>
+            ) : (
+              <span className="break-words">{data[field] as string}</span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="flex justify-center gap-2 mt-5">
+        {socials.filter(({ key }) => editMode || data[key]).map(({ key, icon, color }) => (
+          <a
+            key={key}
+            href={(data[key] as string).startsWith('http') ? (data[key] as string) : `https://${data[key] as string}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sidebar-social-btn"
+            style={{ color }}
+            title={key}
+          >
+            {icon}
+          </a>
+        ))}
+      </div>
+
+      {editMode && (
+        <div className="mt-3 flex flex-col gap-1 text-xs sidebar-muted-text">
+          {socials.map(({ key, label }) => (
+            <div key={key} className="flex items-center gap-1.5">
+              <span className="shrink-0 opacity-60">{label}:</span>
+              <EditableText value={data[key] as string} onChange={(v) => update(key, v)} editable tag="span" className="flex-1 min-w-0 break-all" />
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div className="w-full h-px my-6" style={{ background: 'rgba(255,255,255,0.1)' }} />
+
+      <nav className="flex flex-col gap-0.5 flex-1">
+        {NAV_SECTIONS.filter(({ id }) => {
+          const key = OPTIONAL_SECTION_KEYS[id]
+          if (!key) return true
+          return editMode || (data[key] as unknown[]).length > 0
+        }).map(({ id, label, icon }) => (
+          <button
+            key={id}
+            onClick={() => onNavigate(id)}
+            className={`sidebar-nav-link ${activeSection === id ? 'sidebar-nav-active' : ''}`}
+          >
+            <span className="text-sm w-5 text-center shrink-0">{icon}</span>
+            <span className="truncate">{label}</span>
+          </button>
+        ))}
+      </nav>
+
+      <div className="w-full h-px my-5" style={{ background: 'rgba(255,255,255,0.1)' }} />
+
+      <div className="flex items-center justify-between gap-2">
+        <label className="theme-slider">
+          <input type="checkbox" checked={dark} onChange={(e) => setDark(e.target.checked)} />
+          <span className="theme-slider-track">
+            <span className="theme-slider-thumb">{dark ? '🌙' : '☀️'}</span>
+          </span>
+        </label>
+        <button
+          onClick={onToggleEdit}
+          className="text-xs px-3 py-1.5 rounded-lg font-medium transition-all"
+          style={{
+            background: editMode ? 'var(--sidebar-accent)' : 'rgba(255,255,255,0.08)',
+            color: editMode ? '#0d1420' : '#e5e7eb',
+          }}
+        >
+          {editMode ? '🔓 Done' : '🔒 Edit'}
+        </button>
+      </div>
+    </div>
+  )
+}
+
 // ─── Main App ─────────────────────────────────────────────────────────────────
 
 const NAV_SECTIONS = [
+  { id: 'home', label: 'Home', icon: '🏠' },
   { id: 'summary', label: 'Professional Summary', icon: '👤' },
   { id: 'honors', label: 'Honors & Awards', icon: '🏆' },
   { id: 'education', label: 'Education', icon: '🎓' },
@@ -416,14 +639,22 @@ const NAV_SECTIONS = [
   { id: 'hackathons', label: 'Hackathons & Recognitions', icon: '🚀' },
   { id: 'certifications', label: 'Certification & Training', icon: '📜' },
   { id: 'leadership', label: 'Leadership & Community', icon: '🤝' },
+  { id: 'testimonials', label: 'Testimonials', icon: '💬' },
 ]
+
+// Section ids whose nav link + section should hide for visitors when the underlying list is empty
+const OPTIONAL_SECTION_KEYS: Partial<Record<string, keyof ResumeData>> = {
+  publications: 'publications',
+  hackathons: 'hackathons',
+  testimonials: 'testimonials',
+}
 
 export default function App() {
   const [dark, setDark] = useState(false)
   const [data, setData] = useState<ResumeData>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY)
-      return saved ? JSON.parse(saved) : DEFAULT_DATA
+      return saved ? { ...DEFAULT_DATA, ...JSON.parse(saved) } : DEFAULT_DATA
     } catch {
       return DEFAULT_DATA
     }
@@ -444,6 +675,13 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
   }, [data])
+
+  // Keep the browser tab title in sync with the resume name
+  useEffect(() => {
+    document.title = data.ownerName && data.ownerName !== 'Your Name'
+      ? `${data.ownerName} — Resume`
+      : 'Resume'
+  }, [data.ownerName])
 
   // Active section tracking
   useEffect(() => {
@@ -483,6 +721,7 @@ export default function App() {
     setData((d) => ({ ...d, [key]: [...(d[key] as ResumeEntry[]), newEntry] }))
   }
 
+
   const handleLogin = () => {
     if (pwInput === OWNER_PASSWORD) {
       setEditMode(true)
@@ -500,10 +739,24 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--background)' }}>
-      {/* ── Top Bar ── */}
+    <div className="min-h-screen lg:flex" style={{ background: 'var(--background)' }}>
+      {/* ── Desktop Sidebar ── */}
+      <aside className="hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:left-0 lg:w-[290px] sidebar-panel">
+        <SidebarContent
+          data={data}
+          update={update}
+          editMode={editMode}
+          dark={dark}
+          setDark={setDark}
+          onToggleEdit={() => (editMode ? setEditMode(false) : setShowLogin(true))}
+          activeSection={activeSection}
+          onNavigate={scrollTo}
+        />
+      </aside>
+
+      {/* ── Mobile Top Bar ── */}
       <header
-        className="sticky top-0 z-40 flex items-center justify-between px-5 py-3 gap-3"
+        className="lg:hidden sticky top-0 z-40 flex items-center justify-between px-4 py-3 gap-3"
         style={{ background: 'color-mix(in srgb, var(--background) 85%, transparent)', backdropFilter: 'blur(12px)', borderBottom: '1px solid var(--border)' }}
       >
         <button
@@ -512,114 +765,83 @@ export default function App() {
           aria-label="Menu"
           style={{ background: navOpen ? 'var(--muted)' : 'transparent' }}
         >
-          <span className="ham-line" />
-          <span className="ham-line" />
-          <span className="ham-line" />
+          <span className="ham-line" style={{ background: dark ? '#ffffff' : '#1b2230' }} />
+          <span className="ham-line" style={{ background: dark ? '#ffffff' : '#1b2230' }} />
+          <span className="ham-line" style={{ background: dark ? '#ffffff' : '#1b2230' }} />
         </button>
-
-        <div className="flex-1 flex items-center justify-center gap-3">
-          <EditableText
-            value={data.ownerName}
-            onChange={(v) => update('ownerName', v)}
-            editable={editMode}
-            tag="span"
-            className="font-semibold text-base tracking-tight"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          />
-          <div className="flex items-center gap-1.5">
-            {data.ownerLinkedIn && (
-              <a href={data.ownerLinkedIn.startsWith('http') ? data.ownerLinkedIn : `https://${data.ownerLinkedIn}`} target="_blank" rel="noopener noreferrer"
-                className="p-1.5 rounded-lg transition-colors hover:opacity-80"
-                style={{ background: 'var(--muted)', color: '#0A66C2' }} title="LinkedIn">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </a>
-            )}
-            {data.ownerGitHub && (
-              <a href={data.ownerGitHub.startsWith('http') ? data.ownerGitHub : `https://${data.ownerGitHub}`} target="_blank" rel="noopener noreferrer"
-                className="p-1.5 rounded-lg transition-colors hover:opacity-80"
-                style={{ background: 'var(--muted)', color: 'var(--foreground)' }} title="GitHub">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-            )}
-            {data.ownerInstagram && (
-              <a href={data.ownerInstagram.startsWith('http') ? data.ownerInstagram : `https://${data.ownerInstagram}`} target="_blank" rel="noopener noreferrer"
-                className="p-1.5 rounded-lg transition-colors hover:opacity-80"
-                style={{ background: 'var(--muted)', color: '#E1306C' }} title="Instagram">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-              </a>
-            )}
-          </div>
-        </div>
-
-        <div className="flex items-center gap-3">
-          {editMode && <span className="edit-badge hidden sm:inline">Editing</span>}
-
-          {/* Theme slider */}
-          <div className="flex items-center gap-2">
-            <span className="text-sm select-none">☀️</span>
-            <label className="theme-slider">
-              <input type="checkbox" checked={dark} onChange={(e) => setDark(e.target.checked)} />
-              <span className="theme-slider-track">
-                <span className="theme-slider-thumb">{dark ? '🌙' : '☀️'}</span>
-              </span>
-            </label>
-            <span className="text-sm select-none">🌙</span>
-          </div>
-
-          {/* Owner lock */}
+        <EditableText
+          value={data.ownerName}
+          onChange={(v) => update('ownerName', v)}
+          editable={editMode}
+          tag="span"
+          className="font-semibold text-base tracking-tight flex-1 text-center"
+          style={{ fontFamily: "'Playfair Display', serif" }}
+        />
+        <div className="flex items-center gap-2 shrink-0">
+          <label className="theme-slider" style={{ transform: 'scale(0.85)' }}>
+            <input type="checkbox" checked={dark} onChange={(e) => setDark(e.target.checked)} />
+            <span className="theme-slider-track">
+              <span className="theme-slider-thumb">{dark ? '🌙' : '☀️'}</span>
+            </span>
+          </label>
           <button
             onClick={() => (editMode ? setEditMode(false) : setShowLogin(true))}
-            className="text-sm px-3 py-1.5 rounded-lg font-medium transition-all"
+            className="text-xs px-2.5 py-1.5 rounded-lg font-medium transition-all"
             style={{
               background: editMode ? 'color-mix(in srgb, var(--primary) 15%, transparent)' : 'var(--muted)',
               color: editMode ? 'var(--primary)' : 'var(--muted-foreground)',
-              border: `1px solid ${editMode ? 'color-mix(in srgb, var(--primary) 30%, transparent)' : 'var(--border)'}`,
             }}
           >
-            {editMode ? '🔓 Done' : '🔒 Edit'}
+            {editMode ? '🔓' : '🔒'}
           </button>
         </div>
       </header>
 
-      {/* ── Hamburger Sidebar ── */}
-      <div
-        className="fixed inset-0 z-30 pointer-events-none"
-        style={{ transition: 'opacity 0.2s' }}
-      >
-        {/* backdrop */}
+      {/* ── Mobile Drawer (same content as desktop sidebar) ── */}
+      <div className="lg:hidden fixed inset-0 z-30 pointer-events-none" style={{ transition: 'opacity 0.2s' }}>
         <div
           className={`absolute inset-0 transition-opacity duration-200 ${navOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0'}`}
-          style={{ background: 'rgba(0,0,0,0.25)', backdropFilter: 'blur(2px)' }}
+          style={{ background: 'rgba(0,0,0,0.35)', backdropFilter: 'blur(2px)' }}
           onClick={() => setNavOpen(false)}
         />
-        {/* drawer */}
         <nav
-          className="absolute left-0 top-0 h-full w-72 flex flex-col py-16 px-4 pointer-events-auto transition-transform duration-300"
+          className="absolute left-0 top-0 h-full w-[290px] pointer-events-auto transition-transform duration-300 sidebar-panel"
           style={{
-            background: 'var(--card)',
-            borderRight: '1px solid var(--border)',
             transform: navOpen ? 'translateX(0)' : 'translateX(-100%)',
-            boxShadow: navOpen ? '4px 0 24px rgba(0,0,0,0.12)' : 'none',
+            boxShadow: navOpen ? '4px 0 24px rgba(0,0,0,0.25)' : 'none',
           }}
         >
-          <p className="text-xs font-mono uppercase tracking-widest mb-4 px-3" style={{ color: 'var(--muted-foreground)' }}>
-            Navigate
-          </p>
-          {NAV_SECTIONS.map(({ id, label, icon }) => (
-            <button
-              key={id}
-              onClick={() => scrollTo(id)}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-left transition-all mb-0.5"
-              style={{
-                background: activeSection === id ? 'color-mix(in srgb, var(--primary) 12%, transparent)' : 'transparent',
-                color: activeSection === id ? 'var(--primary)' : 'var(--foreground)',
-              }}
-            >
-              <span className="text-base w-5 text-center">{icon}</span>
-              {label}
-            </button>
-          ))}
+          <SidebarContent
+            data={data}
+            update={update}
+            editMode={editMode}
+            dark={dark}
+            setDark={setDark}
+            onToggleEdit={() => (editMode ? setEditMode(false) : setShowLogin(true))}
+            activeSection={activeSection}
+            onNavigate={scrollTo}
+          />
         </nav>
+      </div>
+
+      {/* ── Desktop Top-Right Controls ── */}
+      <div className="hidden lg:flex fixed top-4 right-6 z-40 items-center gap-2.5 px-3 py-2 rounded-full desktop-topbar-controls">
+        <label className="theme-slider" style={{ transform: 'scale(0.85)' }}>
+          <input type="checkbox" checked={dark} onChange={(e) => setDark(e.target.checked)} />
+          <span className="theme-slider-track">
+            <span className="theme-slider-thumb">{dark ? '🌙' : '☀️'}</span>
+          </span>
+        </label>
+        <button
+          onClick={() => (editMode ? setEditMode(false) : setShowLogin(true))}
+          className="text-xs px-3 py-1.5 rounded-full font-medium transition-all"
+          style={{
+            background: editMode ? 'color-mix(in srgb, var(--primary) 15%, transparent)' : 'var(--muted)',
+            color: editMode ? 'var(--primary)' : 'var(--muted-foreground)',
+          }}
+        >
+          {editMode ? '🔓 Done' : '🔒 Edit'}
+        </button>
       </div>
 
       {/* ── Login Modal ── */}
@@ -667,103 +889,60 @@ export default function App() {
       )}
 
       {/* ── Main Content ── */}
-      <main className="max-w-3xl mx-auto px-4 py-10">
+      <main className="flex-1 lg:ml-[290px] w-full px-4 sm:px-8 lg:px-12 xl:px-16 py-10">
 
-        {/* Hero / Profile */}
-        <section className="mb-12 flex flex-col sm:flex-row items-center sm:items-start gap-7">
-          <div className="shrink-0 w-28 h-28 sm:w-32 sm:h-32">
+
+        {/* Hero */}
+        <section id="home" className="scroll-mt-20 mb-14">
+          <div className="relative w-full hero-banner rounded-md overflow-hidden">
             <ImageUpload
-              src={data.ownerAvatar}
-              onUpload={(url) => update('ownerAvatar', url)}
+              src={data.heroPhoto}
+              onUpload={(url) => update('heroPhoto', url)}
               editable={editMode}
-              className="w-28 h-28 sm:w-32 sm:h-32"
-              rounded
+              className="absolute inset-0 w-full h-full"
             />
+            <div className="absolute inset-0 hero-banner-scrim" />
+            <div className="relative z-10 flex flex-col justify-end h-full px-6 sm:px-10 py-8 pointer-events-none">
+              <p className="text-xs font-medium mb-2 tracking-[0.15em] uppercase" style={{ color: 'var(--hero-eyebrow)' }}>Hi, my name is</p>
+              <h2 className="text-3xl sm:text-4xl font-bold leading-tight mb-2 hero-name" style={{ fontFamily: "'Playfair Display', serif" }}>
+                {data.ownerName}.
+              </h2>
+              <h3 className="text-lg sm:text-xl font-medium leading-snug hero-role">
+                I&rsquo;m{' '}
+                <TypewriterText
+                  phrases={data.heroTaglines}
+                  className="font-semibold hero-role-accent"
+                />
+              </h3>
+            </div>
           </div>
-          <div className="flex-1 text-center sm:text-left">
-            <EditableText
-              value={data.ownerName}
-              onChange={(v) => update('ownerName', v)}
-              editable={editMode}
-              tag="h1"
-              className="text-3xl sm:text-4xl font-bold leading-tight"
-            />
-            <EditableText
-              value={data.ownerTitle}
-              onChange={(v) => update('ownerTitle', v)}
-              editable={editMode}
-              tag="p"
-              className="text-base mt-1 mb-3"
-              style={{ color: 'var(--primary)' }}
-            />
-            {/* Contact row */}
-            <div className="flex flex-wrap justify-center sm:justify-start gap-2 text-xs mb-3" style={{ color: 'var(--muted-foreground)' }}>
-              {([
-                { icon: '✉️', field: 'ownerEmail' as const, href: (v: string) => `mailto:${v}` },
-                { icon: '📍', field: 'ownerLocation' as const, href: null },
-                { icon: '📱', field: 'ownerPhone' as const, href: (v: string) => `tel:${v}` },
-              ] as { icon: string; field: keyof ResumeData; href: ((v: string) => string) | null }[]).map(({ icon, field, href }) => (
-                <span key={field} className="flex items-center gap-1 px-2 py-1 rounded-md" style={{ background: 'var(--muted)' }}>
-                  <span>{icon}</span>
-                  {editMode ? (
-                    <EditableText
-                      value={data[field] as string}
-                      onChange={(v) => update(field, v)}
-                      editable
-                      tag="span"
-                      placeholder={field.replace('owner', '').toLowerCase()}
-                    />
-                  ) : href ? (
-                    <a href={href(data[field] as string)} className="hover:underline">{data[field] as string}</a>
-                  ) : (
-                    <span>{data[field] as string}</span>
-                  )}
+          {editMode && (
+            <div className="flex flex-wrap gap-2 mt-4">
+              <span className="text-xs self-center mr-1" style={{ color: 'var(--muted-foreground)' }}>Phrases:</span>
+              {data.heroTaglines.map((s, i) => (
+                <span key={i} className="skill-tag flex items-center gap-1">
+                  <input
+                    value={s}
+                    onChange={(e) => {
+                      const arr = [...data.heroTaglines]
+                      arr[i] = e.target.value
+                      update('heroTaglines', arr)
+                    }}
+                    className="outline-none bg-transparent text-sm"
+                    style={{ minWidth: 60, maxWidth: 180 }}
+                  />
+                  <button
+                    onClick={() => update('heroTaglines', data.heroTaglines.filter((_, idx) => idx !== i))}
+                    className="text-xs opacity-50 hover:opacity-100"
+                  >✕</button>
                 </span>
               ))}
+              <button
+                onClick={() => update('heroTaglines', [...data.heroTaglines, 'a New Thing.'])}
+                className="skill-tag cursor-pointer opacity-70 hover:opacity-100"
+              >+ Add phrase</button>
             </div>
-
-            {/* Social icons row */}
-            <div className="flex flex-wrap justify-center sm:justify-start gap-3">
-              {/* LinkedIn */}
-              <div className="flex items-center gap-2">
-                <a href={data.ownerLinkedIn.startsWith('http') ? data.ownerLinkedIn : `https://${data.ownerLinkedIn}`}
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-xs transition-all hover:opacity-80"
-                  style={{ background: '#0A66C2', color: '#fff' }}>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  {editMode ? (
-                    <EditableText value={data.ownerLinkedIn} onChange={(v) => update('ownerLinkedIn', v)} editable tag="span" placeholder="linkedin.com/in/you" />
-                  ) : 'LinkedIn'}
-                </a>
-              </div>
-
-              {/* GitHub */}
-              <div className="flex items-center gap-2">
-                <a href={data.ownerGitHub.startsWith('http') ? data.ownerGitHub : `https://${data.ownerGitHub}`}
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-xs transition-all hover:opacity-80"
-                  style={{ background: 'var(--foreground)', color: 'var(--background)' }}>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                  {editMode ? (
-                    <EditableText value={data.ownerGitHub} onChange={(v) => update('ownerGitHub', v)} editable tag="span" placeholder="github.com/you" />
-                  ) : 'GitHub'}
-                </a>
-              </div>
-
-              {/* Instagram */}
-              <div className="flex items-center gap-2">
-                <a href={data.ownerInstagram.startsWith('http') ? data.ownerInstagram : `https://${data.ownerInstagram}`}
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-xs transition-all hover:opacity-80"
-                  style={{ background: 'linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', color: '#fff' }}>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-                  {editMode ? (
-                    <EditableText value={data.ownerInstagram} onChange={(v) => update('ownerInstagram', v)} editable tag="span" placeholder="instagram.com/you" />
-                  ) : 'Instagram'}
-                </a>
-              </div>
-            </div>
-          </div>
+          )}
         </section>
 
         {/* Professional Summary */}
@@ -929,6 +1108,7 @@ export default function App() {
         </SectionWrap>
 
         {/* Publications */}
+        {(editMode || data.publications.length > 0) && (
         <SectionWrap id="publications" title="Publications" icon="📄">
           {data.publications.map((e) => (
             <EntryCard
@@ -941,8 +1121,10 @@ export default function App() {
           ))}
           {editMode && <button className="w-full py-2 rounded-xl text-sm font-medium" style={{ background: 'var(--muted)', color: 'var(--muted-foreground)', border: '1px dashed var(--border)' }} onClick={() => addEntry('publications')}>+ Add Publication</button>}
         </SectionWrap>
+        )}
 
         {/* Hackathons */}
+        {(editMode || data.hackathons.length > 0) && (
         <SectionWrap id="hackathons" title="Hackathons & Recognitions" icon="🚀">
           {data.hackathons.map((e) => (
             <EntryCard
@@ -956,6 +1138,7 @@ export default function App() {
           ))}
           {editMode && <button className="w-full py-2 rounded-xl text-sm font-medium" style={{ background: 'var(--muted)', color: 'var(--muted-foreground)', border: '1px dashed var(--border)' }} onClick={() => addEntry('hackathons', false, true)}>+ Add Hackathon</button>}
         </SectionWrap>
+        )}
 
         {/* Certifications */}
         <SectionWrap id="certifications" title="Certification & Training" icon="📜">
@@ -1032,6 +1215,70 @@ export default function App() {
           ))}
           {editMode && <button className="w-full py-2 rounded-xl text-sm font-medium" style={{ background: 'var(--muted)', color: 'var(--muted-foreground)', border: '1px dashed var(--border)' }} onClick={() => addEntry('leadership', true)}>+ Add Leadership Role</button>}
         </SectionWrap>
+
+        {/* Testimonials */}
+        {(editMode || data.testimonials.length > 0) && (
+        <SectionWrap id="testimonials" title="Testimonials" icon="💬">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {data.testimonials.map((t) => (
+              <Card key={t.id} className="!mb-0 relative">
+                <div className="flex items-center gap-3 mb-3">
+                  <ImageUpload
+                    src={t.avatar || ''}
+                    onUpload={(url) => update('testimonials', data.testimonials.map((x) => (x.id === t.id ? { ...x, avatar: url } : x)))}
+                    editable={editMode}
+                    className="w-11 h-11 shrink-0"
+                    rounded
+                  />
+                  <div className="min-w-0">
+                    <EditableText
+                      value={t.name}
+                      onChange={(v) => update('testimonials', data.testimonials.map((x) => (x.id === t.id ? { ...x, name: v } : x)))}
+                      editable={editMode}
+                      tag="p"
+                      className="font-semibold text-sm truncate"
+                    />
+                    <EditableText
+                      value={t.role}
+                      onChange={(v) => update('testimonials', data.testimonials.map((x) => (x.id === t.id ? { ...x, role: v } : x)))}
+                      editable={editMode}
+                      tag="p"
+                      className="text-xs truncate"
+                      style={{ color: 'var(--muted-foreground)' }}
+                    />
+                  </div>
+                </div>
+                <EditableText
+                  value={t.quote}
+                  onChange={(v) => update('testimonials', data.testimonials.map((x) => (x.id === t.id ? { ...x, quote: v } : x)))}
+                  editable={editMode}
+                  tag="p"
+                  className="text-sm italic leading-relaxed"
+                  style={{ color: 'var(--foreground)' }}
+                />
+                {editMode && (
+                  <button
+                    onClick={() => update('testimonials', data.testimonials.filter((x) => x.id !== t.id))}
+                    className="absolute top-3 right-3 text-xs opacity-50 hover:opacity-100"
+                    title="Delete testimonial"
+                  >
+                    ✕
+                  </button>
+                )}
+              </Card>
+            ))}
+          </div>
+          {editMode && (
+            <button
+              className="w-full py-2 mt-4 rounded-xl text-sm font-medium"
+              style={{ background: 'var(--muted)', color: 'var(--muted-foreground)', border: '1px dashed var(--border)' }}
+              onClick={() => update('testimonials', [...data.testimonials, { id: uid(), quote: 'Add a testimonial quote here.', name: 'Add Name', role: 'Add Title / Relationship', avatar: '' }])}
+            >
+              + Add Testimonial
+            </button>
+          )}
+        </SectionWrap>
+        )}
 
         {editMode && (
           <p className="mt-10 pb-10 text-center text-xs" style={{ color: 'var(--primary)' }}>
